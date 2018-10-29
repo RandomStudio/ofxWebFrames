@@ -19,7 +19,7 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
 
     if (key == 'e') {
-        ofLogNotice("encoding image");
+        // ofLogNotice("encoding image");
             ofPixels px;
             px.setFromPixels(img.getPixels().getData(), img.getWidth(), img.getHeight(), img.getPixelsRef().getImageType());
     
