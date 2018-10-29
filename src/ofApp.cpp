@@ -18,6 +18,18 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
+    if (key == 'e') {
+        ofLogNotice("encoding image");
+            ofPixels px;
+            px.setFromPixels(img.getPixels().getData(), img.getWidth(), img.getHeight(), img.getPixelsRef().getImageType());
+    
+            ofBuffer imageBuffer;
+            ofSaveImage(px, imageBuffer);
+
+            string reencodedImageData = ofxCrypto::base64_encode(imageBuffer);
+            cout << reencodedImageData << endl;
+    }
+
 }
 
 //--------------------------------------------------------------

@@ -520,7 +520,26 @@ obj/linux64/Release/src/ofApp.o: \
  /home/random/of_v0.10.0_linux64gcc6_release/libs/openFrameworks/video/ofGstVideoPlayer.h \
  /home/random/of_v0.10.0_linux64gcc6_release/libs/openFrameworks/3d/of3dUtils.h \
  /home/random/of_v0.10.0_linux64gcc6_release/libs/openFrameworks/3d/ofCamera.h \
- /home/random/of_v0.10.0_linux64gcc6_release/libs/openFrameworks/3d/ofEasyCam.h
+ /home/random/of_v0.10.0_linux64gcc6_release/libs/openFrameworks/3d/ofEasyCam.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxCrypto/src/ofxCrypto.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/MD5Engine.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Foundation.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Config.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Platform.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Platform_POSIX.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Alignment.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Bugcheck.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Types.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/DigestEngine.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/SHA1Engine.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/DigestStream.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/BufferedStreamBuf.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/BufferAllocator.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/StreamUtil.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/StreamCopier.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Base64Decoder.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/UnbufferedStreamBuf.h \
+ /home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Base64Encoder.h
 
 /home/random/of_v0.10.0_linux64gcc6_release/apps/myApps/frameEncoder/src/ofApp.h:
 
@@ -1595,3 +1614,41 @@ obj/linux64/Release/src/ofApp.o: \
 /home/random/of_v0.10.0_linux64gcc6_release/libs/openFrameworks/3d/ofCamera.h:
 
 /home/random/of_v0.10.0_linux64gcc6_release/libs/openFrameworks/3d/ofEasyCam.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxCrypto/src/ofxCrypto.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/MD5Engine.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Foundation.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Config.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Platform.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Platform_POSIX.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Alignment.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Bugcheck.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Types.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/DigestEngine.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/SHA1Engine.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/DigestStream.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/BufferedStreamBuf.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/BufferAllocator.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/StreamUtil.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/StreamCopier.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Base64Decoder.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/UnbufferedStreamBuf.h:
+
+/home/random/of_v0.10.0_linux64gcc6_release/addons/ofxPoco/libs/poco/include/Poco/Base64Encoder.h:
