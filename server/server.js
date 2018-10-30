@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5000;
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 const fs = require('fs');
 process.stdin.setEncoding('utf8');
@@ -42,6 +44,11 @@ app.get('/img', (req, res) => {
     res.send(imageData);
 });
 
+io.on('connection', (socket) => {
+    console.log('new client connected:', socket.id);
+    socket.emit('welcome', { hello: 'world' });
+  });
+
 // app.post('/img', (req, res) => {
 //     const imageData = new Buffer(imageString, 'base64');
 //     fs.writeFile('output.png', imageData, err => {
@@ -56,6 +63,6 @@ app.get('/img', (req, res) => {
 // });
 
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+server.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 console.log('started server OK');
