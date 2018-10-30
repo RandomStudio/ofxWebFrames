@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:5000');
+
 class App extends Component {
   render() {
     return (
@@ -22,6 +26,12 @@ class App extends Component {
         </header>
       </div>
     );
+  }
+
+  componentDidMount() {
+    socket.on('connect', () => {
+      console.log('connected to server!');
+    });
   }
 }
 
