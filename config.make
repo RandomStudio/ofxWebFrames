@@ -61,7 +61,8 @@
 #
 #   Note: Leave a leading space when adding list items with the += operator
 ################################################################################
-# PROJECT_EXCLUSIONS =
+PROJECT_EXCLUSIONS += $(PROJECT_ROOT)/client%
+PROJECT_EXCLUSIONS += $(PROJECT_ROOT)/server%
 
 ################################################################################
 # PROJECT LINKER FLAGS
