@@ -3,44 +3,27 @@ const app = express();
 const port = 3000;
 
 const fs = require('fs');
-const readline = require('readline');
-
 process.stdin.setEncoding('utf8');
 
 let imageString = '';
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: null
-  });
-  
- rl.on('line', line => {
-    if (line === 'EOF') {
+process.stdin.on('readable', () => {
+  var chunk = process.stdin.read();
+  if (chunk !== null) {
+    const chunkString = chunk.toString();
+    if (chunkString.endsWith('EOF\n')) {
         console.log('done');
     } else {
-        // console.log('incoming: ', line);
-        imageString += line;
-        // console.log('imageString length:', imageString.length);
+        // console.log('incoming: ', chunkString);
+        imageString += chunkString;
+        console.log('imageString length:', imageString.length);
     }
-     
- })
-
-// process.stdin.on('readable', () => {
-//   var chunk = process.stdin.read();
-//   if (chunk !== null) {
-//       const chunkString = chunk.toString();
-//     if (chunkString === 'EOF') {
-//         console.log('done');
-//     } else {
-//         console.log('incoming: ', chunkString);
-//         imageString += chunkString;
-//         console.log('imageString length:', imageString.length);
-//     }
-//   }
-// });
+  }
+});
 
 process.stdin.on('end', () => {
-  process.exit();
+    console.log('process.stdin end, will exit server');
+    process.exit();
 });
 
 
