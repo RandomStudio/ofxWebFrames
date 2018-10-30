@@ -3,18 +3,41 @@ const app = express();
 const port = 3000;
 
 const fs = require('fs');
+const readline = require('readline');
 
 process.stdin.setEncoding('utf8');
 
 let imageString = '';
 
-process.stdin.on('readable', () => {
-  var chunk = process.stdin.read();
-  if (chunk !== null) {
-    imageString += chunk.toString();
-    console.log('imageString length:', imageString.length);
-  }
-});
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: null
+  });
+  
+ rl.on('line', line => {
+    if (line === 'EOF') {
+        console.log('done');
+    } else {
+        // console.log('incoming: ', line);
+        imageString += line;
+        // console.log('imageString length:', imageString.length);
+    }
+     
+ })
+
+// process.stdin.on('readable', () => {
+//   var chunk = process.stdin.read();
+//   if (chunk !== null) {
+//       const chunkString = chunk.toString();
+//     if (chunkString === 'EOF') {
+//         console.log('done');
+//     } else {
+//         console.log('incoming: ', chunkString);
+//         imageString += chunkString;
+//         console.log('imageString length:', imageString.length);
+//     }
+//   }
+// });
 
 process.stdin.on('end', () => {
   process.exit();
@@ -38,7 +61,7 @@ app.post('/img', (req, res) => {
         }
     });
 
-})
+});
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
