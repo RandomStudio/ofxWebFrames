@@ -8,7 +8,7 @@ process.stdin.setEncoding('utf8');
 let imageString = '';
 
 process.stdin.on('readable', () => {
-  var chunk = process.stdin.read();
+  const chunk = process.stdin.read();
   if (chunk !== null) {
     const chunkString = chunk.toString();
     if (chunkString.endsWith('EOF\n')) {
