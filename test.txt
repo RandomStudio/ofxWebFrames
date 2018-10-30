@@ -1,2 +1,0 @@
-started server OK
-Example app listening on port 3000!

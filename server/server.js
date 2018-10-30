@@ -6,23 +6,13 @@ const fs = require('fs');
 
 process.stdin.setEncoding('utf8');
 
-let imageData = null;
+let imageString = '';
 
 process.stdin.on('readable', () => {
   var chunk = process.stdin.read();
   if (chunk !== null) {
-    console.log('chunk incoming:', chunk.toString());
-    // imageData += chunk;
-    let data = new Buffer(chunk, 'base64');
-    if (imageData === null) {
-        imageData = data;
-    } else {
-        imageData = Buffer.concat([imageData, data]);
-    }
-    // fs.appendFile('output.png', data, err => {
-    //     if (err) { throw new Error('error appending to file: ' + err); }
-    // });
-    console.log('imageData legnth:', imageData.length);
+    imageString += chunk.toString();
+    console.log('imageString length:', imageString.length);
   }
 });
 
@@ -32,11 +22,23 @@ process.stdin.on('end', () => {
 
 
 app.get('/img', (req, res) => {
-    // const data = new Buffer(imageData, 'base64');
-    res.set("Content-Type", "image/png");
-    res.end(imageData, 'binary'); 
+    const imageData = new Buffer(imageString, 'base64');
+    res.set("Content-Type", "image/png;base64");
+    res.send(imageData);
 });
 
+app.post('/img', (req, res) => {
+    const imageData = new Buffer(imageString, 'base64');
+    fs.writeFile('output.png', imageData, err => {
+        if (err) { 
+            res.error(err);
+            throw new Error('error writing to file: ' + err); 
+        } else {
+            res.send('ok');
+        }
+    });
+
+})
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
