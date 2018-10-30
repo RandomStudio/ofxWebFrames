@@ -4,6 +4,7 @@ Proof of concept for streaming frames out of an openFrameworks application into 
 
 Technologies used:
 * openFrameworks
+* ofxCrypto (https://github.com/jkosoy/ofxCrypto)
 * nodeJS
 * Socket.IO
 * React
