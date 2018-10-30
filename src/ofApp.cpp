@@ -2,17 +2,21 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    img.load("bikers.jpg");
+    vidGrabber.setDeviceID(0);
+    vidGrabber.setDesiredFrameRate(30);
+    vidGrabber.initGrabber(1920, 1080);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    vidGrabber.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    img.draw(0,0);
+    ofBackground(100, 100, 100);
+    vidGrabber.draw(20, 20);
+    // vidGrabber.draw(0,0);
 }
 
 //--------------------------------------------------------------
@@ -21,10 +25,10 @@ void ofApp::keyPressed(int key){
     if (key == 'e') {
         // ofLogNotice("encoding image");
         ofPixels px;
-        px.setFromPixels(img.getPixels().getData(), img.getWidth(), img.getHeight(), img.getPixelsRef().getImageType());
+        px.setFromPixels(vidGrabber.getPixels().getData(), vidGrabber.getWidth(), vidGrabber.getHeight(), vidGrabber.getPixelsRef().getImageType());
 
         ofBuffer imageBuffer;
-        ofSaveImage(px, imageBuffer);
+        ofSaveImage(px, imageBuffer, OF_IMAGE_FORMAT_JPEG, OF_IMAGE_QUALITY_LOW);
 
         string reencodedImageData = ofxCrypto::base64_encode(imageBuffer);
         cout << reencodedImageData << endl;

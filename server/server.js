@@ -21,7 +21,7 @@ process.stdin.on('readable', () => {
             console.log('done');
             // imageData = new Buffer(imageString, 'base64');
             
-            clientSocket.emit('frame', "data:image/png;base64,"+ imageString);
+            clientSocket.emit('frame', "data:image/jpeg;base64,"+ imageString);
             imageString = null;
         } else {
             // console.log('incoming: ', chunkString);
