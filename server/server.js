@@ -4,6 +4,8 @@ const port = 5000;
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+let clientSocket;
+
 const fs = require('fs');
 process.stdin.setEncoding('utf8');
 
@@ -17,7 +19,9 @@ process.stdin.on('readable', () => {
         const chunkString = chunk.toString();
         if (chunkString.endsWith('EOF\n')) {
             console.log('done');
-            imageData = new Buffer(imageString, 'base64');
+            // imageData = new Buffer(imageString, 'base64');
+            
+            clientSocket.emit('frame', "data:image/png;base64,"+ imageString);
             imageString = null;
         } else {
             // console.log('incoming: ', chunkString);
@@ -46,6 +50,7 @@ app.get('/img', (req, res) => {
 
 io.on('connection', (socket) => {
     console.log('new client connected:', socket.id);
+    clientSocket = socket;
     socket.emit('welcome', { hello: 'world' });
   });
 
