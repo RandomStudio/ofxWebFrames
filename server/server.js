@@ -5,20 +5,30 @@ const port = 3000;
 const fs = require('fs');
 process.stdin.setEncoding('utf8');
 
-let imageString = '';
+let imageData = null;
+
+let imageString = null;
 
 process.stdin.on('readable', () => {
-  const chunk = process.stdin.read();
-  if (chunk !== null) {
-    const chunkString = chunk.toString();
-    if (chunkString.endsWith('EOF\n')) {
-        console.log('done');
-    } else {
-        // console.log('incoming: ', chunkString);
-        imageString += chunkString;
-        console.log('imageString length:', imageString.length);
+    const chunk = process.stdin.read();
+    if (chunk !== null) {
+        const chunkString = chunk.toString();
+        if (chunkString.endsWith('EOF\n')) {
+            console.log('done');
+            imageData = new Buffer(imageString, 'base64');
+            imageString = null;
+        } else {
+            // console.log('incoming: ', chunkString);
+            if (imageString === null) {
+                // console.log('first chunk');
+                imageString = chunkString;
+            } else {
+                // console.log('append chunk');
+                imageString += chunkString;
+            }
+            // console.log('imageString length:', imageString.length);
+        }
     }
-  }
 });
 
 process.stdin.on('end', () => {
@@ -28,23 +38,22 @@ process.stdin.on('end', () => {
 
 
 app.get('/img', (req, res) => {
-    const imageData = new Buffer(imageString, 'base64');
     res.set("Content-Type", "image/png;base64");
     res.send(imageData);
 });
 
-app.post('/img', (req, res) => {
-    const imageData = new Buffer(imageString, 'base64');
-    fs.writeFile('output.png', imageData, err => {
-        if (err) { 
-            res.error(err);
-            throw new Error('error writing to file: ' + err); 
-        } else {
-            res.send('ok');
-        }
-    });
+// app.post('/img', (req, res) => {
+//     const imageData = new Buffer(imageString, 'base64');
+//     fs.writeFile('output.png', imageData, err => {
+//         if (err) { 
+//             res.error(err);
+//             throw new Error('error writing to file: ' + err); 
+//         } else {
+//             res.send('ok');
+//         }
+//     });
 
-});
+// });
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
